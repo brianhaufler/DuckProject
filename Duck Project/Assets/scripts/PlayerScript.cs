@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
 	public GameControllerScript gameController; // Reference to game Controller
+	private CircleGuardScript guard;
 
 	// Speed of the player
 	public Vector2 speed = new Vector2(15, 15);
@@ -17,7 +18,7 @@ public class PlayerScript : MonoBehaviour {
 	// Set up booleans for food/enemy contacts
 	public bool GameOver = false;
 	public bool hasFood = false;
-
+	public bool Complete = false;
 
 	// Update is called once per frame
 	void Update () {
@@ -48,8 +49,9 @@ public class PlayerScript : MonoBehaviour {
 		else if (other.gameObject.CompareTag("Enemy")) {
 			GameOver = true;
 		}
-		// else if (other.gameObject.CompareTag("Pond") && hasFood) {
-		// 		Complete level
-		// }
+		else if (other.gameObject.CompareTag("Pond") && hasFood) {
+		 	Complete = true;
+		}
 	}
+
 }

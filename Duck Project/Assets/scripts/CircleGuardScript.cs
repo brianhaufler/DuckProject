@@ -30,8 +30,8 @@ public class CircleGuardScript : MonoBehaviour {
 		} else {
 			_angle += RotateSpeed * Time.deltaTime;
 
-		var offset = new Vector2 (Mathf.Sin (_angle), Mathf.Cos (_angle)) * Radius;
-		transform.position = _centre + offset;
+			var offset = new Vector2 (Mathf.Sin (_angle), Mathf.Cos (_angle)) * Radius;
+			transform.position = _centre + offset;
 		}
 	}
 
