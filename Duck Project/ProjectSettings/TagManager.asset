@@ -53,9 +53,12 @@ TagManager:
   - name: Food
     uniqueID: 2754553649
     locked: 0
-  - name: Enemies
-    uniqueID: 3286961469
+  - name: Pond
+    uniqueID: 104995185
     locked: 0
   - name: Player
     uniqueID: 3652939503
+    locked: 0
+  - name: Enemies
+    uniqueID: 3286961469
     locked: 0

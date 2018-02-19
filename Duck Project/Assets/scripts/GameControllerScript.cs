@@ -14,6 +14,7 @@ public class GameControllerScript : MonoBehaviour {
 	private Text levelText;
 	private GameObject levelImage;
 	private bool doingSetup;
+	public Vector2 noMovement = new Vector2(0f,0f);
 
 	Animator anim;
 	float restartTimer;
@@ -21,7 +22,6 @@ public class GameControllerScript : MonoBehaviour {
 	void Awake() {
 		instance = this;
 		// Set up the reference
-		anim = GetComponent<Animator>();
 		InitGame ();
 	}
 
@@ -31,7 +31,8 @@ public class GameControllerScript : MonoBehaviour {
 	}
 
 	void InitGame(){
-		doingSetup = true;
+		player = GameObject.Find("Player").GetComponent<PlayerScript>();
+		player.canControl = false;
 		levelImage = GameObject.Find ("LevelImage");
 		levelText = GameObject.Find ("LevelText").GetComponent<Text> ();
 		levelText.text = "Level " + level;
@@ -42,16 +43,18 @@ public class GameControllerScript : MonoBehaviour {
 
 	private void HideLevelImage() {
 		levelImage.SetActive (false);
-		doingSetup = false;
+		GameObject.Find("Player").GetComponent<PlayerScript>().canControl = true;
 	}
 
 	void Update() {
 		// If player has contacted enemy
-		if (GameObject.Find("Player").GetComponent<PlayerScript>().GameOver) {
+		player = GameObject.Find("Player").GetComponent<PlayerScript>();
+		if (player.gameOver) {
 			// Tell the animator the game is over
 			// Don't have animator set up yet
-			anim.SetTrigger("GameOver");
-//
+			player.canControl = false;
+			GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = noMovement;
+			Invoke ("GameOver", levelStartDelay); 
 //			// increment a timer to count up to restarting
 //			restartTimer += Time.deltaTime;
 //
@@ -61,5 +64,11 @@ public class GameControllerScript : MonoBehaviour {
 //				SceneManager.LoadScene("game");
 //			}
 		}
+	}
+
+	private void GameOver() {
+		levelText.text = "Game Over";
+		levelImage.SetActive (true);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
