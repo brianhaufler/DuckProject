@@ -15,8 +15,9 @@ public class PlayerScript : MonoBehaviour {
 	private Rigidbody2D rigidbodyComponent;
 
 	// Set up booleans for food/enemy contacts
-	public bool GameOver = false;
+	public bool gameOver = false;
 	public bool hasFood = false;
+	public bool canControl = true;
 
 
 	// Update is called once per frame
@@ -31,12 +32,14 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		// 5 - Get the component and store the reference
-		if (rigidbodyComponent == null) {
-			rigidbodyComponent = GetComponent<Rigidbody2D> ();
+		if (canControl) {
+			// 5 - Get the component and store the reference
+			if (rigidbodyComponent == null) {
+				rigidbodyComponent = GetComponent<Rigidbody2D> ();
+			}
+			// 6 - Move the game object
+			rigidbodyComponent.velocity = movement;
 		}
-		// 6 - Move the game object
-		rigidbodyComponent.velocity = movement;
 	}
 
 
@@ -46,7 +49,7 @@ public class PlayerScript : MonoBehaviour {
 			hasFood = true;
 		}
 		else if (other.gameObject.CompareTag("Enemy")) {
-			GameOver = true;
+			gameOver = true;
 		}
 		// else if (other.gameObject.CompareTag("Pond") && hasFood) {
 		// 		Complete level
