@@ -35,7 +35,7 @@ public class CircleGuardScript : MonoBehaviour {
 		}
 
 		if(player.isComplete) {
-			transform.position = (target.transform.position-transform.position).normalized;
+			transform.position = (target.transform.position-transform.position).normalized * Time.deltaTime * 1f;
 		}
 	}
 

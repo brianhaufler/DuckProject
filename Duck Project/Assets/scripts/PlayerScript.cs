@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour {
 	public bool hasFood = false;
 	public bool canControl = true;
 	public bool isComplete = false;
+	public int foodCounter = 0;
 
 
 
@@ -49,12 +50,13 @@ public class PlayerScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.CompareTag ("PickUp")) {
 			other.gameObject.SetActive(false);
+			foodCounter++;
 			hasFood = true;
 		}
 		else if (other.gameObject.CompareTag("Enemy")) {
 			gameOver = true;
 		}
-		else if (other.gameObject.CompareTag("Pond") && hasFood) {
+		else if (other.gameObject.CompareTag("Pond") && foodCounter == 2) {
 		 	isComplete = true;
 		}
 	}
