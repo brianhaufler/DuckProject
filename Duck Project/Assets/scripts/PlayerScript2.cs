@@ -3,10 +3,10 @@
 using UnityEngine;
 
 // Script controls players movement and behavior
-public class PlayerScript : MonoBehaviour {
+public class PlayerScript2 : MonoBehaviour {
 
-	public GameControllerScript gameController; // Reference to game Controller
-	private CircleGuardScript guard;
+	public GameControllerScript2 gameController; // Reference to game Controller
+	private CircleGuards2 guard;
 
 	// Speed of the player
 	public Vector2 speed = new Vector2(15, 15);
@@ -50,12 +50,13 @@ public class PlayerScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.CompareTag ("PickUp")) {
 			other.gameObject.SetActive(false);
+			foodCounter++;
 			hasFood = true;
 		}
 		else if (other.gameObject.CompareTag("Enemy")) {
 			gameOver = true;
 		}
-		else if (other.gameObject.CompareTag("Pond") && hasFood) {
+		else if (other.gameObject.CompareTag("Pond") && foodCounter == 2) {
 		 	isComplete = true;
 		}
 	}

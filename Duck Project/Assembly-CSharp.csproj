@@ -51,11 +51,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\CircleGuards2.cs" />
      <Compile Include="Assets\scripts\CircleGuardScript.cs" />
      <Compile Include="Assets\scripts\GameControllerScript.cs" />
+     <Compile Include="Assets\scripts\GameControllerScript2.cs" />
      <Compile Include="Assets\scripts\MoveScript.cs" />
      <Compile Include="Assets\scripts\PickupScript.cs" />
      <Compile Include="Assets\scripts\PlayerScript.cs" />
+     <Compile Include="Assets\scripts\PlayerScript2.cs" />
  <Reference Include="UnityEngine.UIAutomation">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
  </Reference>

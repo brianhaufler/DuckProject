@@ -625,8 +625,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 757470211}
-  - component: {fileID: 757470210}
   - component: {fileID: 757470212}
+  - component: {fileID: 757470213}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -634,22 +634,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &757470210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 757470209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f6936f7aaca64aac96d12ed771be53b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  enemy: {fileID: 0}
-  restartDelay: 5
-  levelStartDelay: 2
-  noMovement: {x: 0, y: 0}
 --- !u!4 &757470211
 Transform:
   m_ObjectHideFlags: 0
@@ -680,6 +664,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &757470213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 757470209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6804580cdd9d440c89fe555b56224516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  enemy: {fileID: 0}
+  restartDelay: 5
+  levelStartDelay: 2
+  noMovement: {x: 0, y: 0}
 --- !u!1 &893249426
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 893249426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6eb0a2db021d4bd2ba91d65626547e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f762cd46f9cb4b75b4d7c64b0cb09b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1601672432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da555406a90824d90bef2eb034017727, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b3373cb2f614446c981b0b1aaff67ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1819182254
@@ -1474,7 +1474,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1819182254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da555406a90824d90bef2eb034017727, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b3373cb2f614446c981b0b1aaff67ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1848852311
