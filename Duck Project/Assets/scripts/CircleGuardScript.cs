@@ -33,6 +33,10 @@ public class CircleGuardScript : MonoBehaviour {
 			var offset = new Vector2 (Mathf.Sin (_angle), Mathf.Cos (_angle)) * Radius;
 			transform.position = _centre + offset;
 		}
+
+		if(player.isComplete) {
+			transform.position = (target.transform.position-transform.position).normalized;
+		}
 	}
 
 }

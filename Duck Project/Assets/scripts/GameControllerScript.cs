@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameControllerScript : MonoBehaviour {
 
 	public PlayerScript player;
+	public CircleGuardScript enemy;
 	public static GameControllerScript instance;
 	public float restartDelay = 5f;
 	private int level = 1;
@@ -38,7 +39,7 @@ public class GameControllerScript : MonoBehaviour {
 		levelText.text = "Level " + level;
 //		enemies.clear ();
 //		boardScript.SetupScene (level);
-		Invoke ("HideLevelImage", levelStartDelay);
+		Invoke("HideLevelImage", levelStartDelay);
 	}
 
 	private void HideLevelImage() {
@@ -54,7 +55,7 @@ public class GameControllerScript : MonoBehaviour {
 			// Don't have animator set up yet
 			player.canControl = false;
 			GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = noMovement;
-			Invoke ("GameOver", levelStartDelay); 
+			Invoke("GameOver", levelStartDelay); 
 //			// increment a timer to count up to restarting
 //			restartTimer += Time.deltaTime;
 //
@@ -63,12 +64,23 @@ public class GameControllerScript : MonoBehaviour {
 //				// Reload the currently loaded level
 //				SceneManager.LoadScene("game");
 //			}
+		} else if(player.isComplete) {
+			player.canControl = false;
+			GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = noMovement;
+			GameObject.Find("Enemy").GetComponent<Rigidbody2D>().velocity = noMovement;
+			Invoke("Complete", levelStartDelay);
 		}
 	}
 
 	private void GameOver() {
 		levelText.text = "Game Over";
-		levelImage.SetActive (true);
+		levelImage.SetActive(true);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
+
+	private void Complete() {
+		levelText.text = "Level Complete!";
+		levelImage.SetActive(true);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }

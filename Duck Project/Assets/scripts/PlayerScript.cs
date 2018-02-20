@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour {
 	public bool gameOver = false;
 	public bool hasFood = false;
 	public bool canControl = true;
+	public bool isComplete = false;
 
 
 
@@ -54,7 +55,7 @@ public class PlayerScript : MonoBehaviour {
 			gameOver = true;
 		}
 		else if (other.gameObject.CompareTag("Pond") && hasFood) {
-		 	Complete = true;
+		 	isComplete = true;
 		}
 	}
 
