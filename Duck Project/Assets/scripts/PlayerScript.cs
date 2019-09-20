@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
 	public GameControllerScript gameController; // Reference to game Controller
+	private CircleGuardScript guard;
 
 	// Speed of the player
 	public Vector2 speed = new Vector2(15, 15);
@@ -18,6 +19,9 @@ public class PlayerScript : MonoBehaviour {
 	public bool gameOver = false;
 	public bool hasFood = false;
 	public bool canControl = true;
+	public bool isComplete = false;
+	public int foodCounter = 0;
+
 
 
 	// Update is called once per frame
@@ -51,8 +55,9 @@ public class PlayerScript : MonoBehaviour {
 		else if (other.gameObject.CompareTag("Enemy")) {
 			gameOver = true;
 		}
-		// else if (other.gameObject.CompareTag("Pond") && hasFood) {
-		// 		Complete level
-		// }
+		else if (other.gameObject.CompareTag("Pond") && hasFood) {
+		 	isComplete = true;
+		}
 	}
+
 }
